@@ -30,8 +30,7 @@ select lower(concat_ws('',nombre ,' ',apellido1, ' ', apellido2)) as nombre_comp
 -- 10. Lista el identificador de los empleados junto al nif, pero el nif deberá
 -- aparecer en dos columnas, una mostrará únicamente los dígitos del nif y la
 -- otra la letra.
-select id,REGEXP_SUBSTR(nif,'[0-9]+',1) as numeros, REGEXP_SUBSTR(nif,'[A-Z]+') as letras from empleado;
-select id , substring(nif, 1,9) as numeros ,substring(nif, 9, 1) from empleado;
+select id,REGEXP_REPLACE(nif,'[0-9]+','') as numeros, REGEXP_REPLACE(nif,'[A-Z]+','') as letras from empleado ORDER BY 1;
 -- 11. Lista el nombre de cada departamento y el valor del presupuesto actual del
 -- que dispone. Para calcular este dato tendrá que restar al valor del
 -- presupuesto inicial (columna presupuesto) los gastos que se han generado
