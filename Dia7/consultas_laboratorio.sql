@@ -1,4 +1,4 @@
-use  laboratorioT2;
+use  laboratorio;
 -- funciones
 
 -- 1 diferecia entre el valor cotizado y el valor pagado.
@@ -40,7 +40,7 @@ select valor_pagar();
     return dias;
 end //
 delimiter ;
-drop function valor_cotizado_semana;
+
 select valor_cotizado_semana();
  -- 4 mostrar el valor total cotizado por dias
  
@@ -66,7 +66,7 @@ select valor_cotizado_dias();
  return suma;
  end //
  delimiter ;
- drop function suma_alquileres;
+
  select suma_alquileres() as Total_alquiler;
 -- consultas
 
@@ -127,25 +127,47 @@ inner join vehiculos v on a.id_vehiculos =  v.idvehiculos ;
   select gerente.nombre , idsucursal from sucursal inner join gerente on gerente.id_sucursal = sucursal.idsucursal;
   
   -- 15 muestre el total de clientes en una sucursal
+  
   select idsucursal, count(*) from cliente  inner join empleado on empleado.idempleado = cliente.id_empleado 
-  inner join sucursal on  emp;leado.id_sucursal = sucursal.idsucursal group by 1;
+  
+  inner join sucursal on  empleado.id_sucursal = sucursal.idsucursal group by 1;
+  
    -- 16 segun las fechas de salida y llegada sacar el valor correcto a pagar a para los clientes que alquilaron por una semana 
+   
    select floor(datediff(fecha_llegada,fecha_salida)/7)*valor_semanal as valor from alquiler;
+   
 	-- 17  mostrar el valor cotizado por semana
+    
     select distinct datediff(fecha_llegada,fecha_salida)*valor_semanal as valor from alquiler where datediff(fecha_llegada,fecha_salida) =7 ;
+    
 	-- 18 mostrar el valor cotizado por dias
+    
     select datediff(fecha_llegada,fecha_salida)%7*valor_dia as valor from alquiler;
+    
 	 -- 19 muestrame el nombre y apellidos de los clientes de bogota
+     
       select nombre, apellido1, apellido2 from cliente where ciudad ='madrid';
+      
 	  -- 20 muestrame los modelos de vehiculos que hay sin que estos se repitan
+      
       select distinct modelos from vehiculos;
+      
 	  -- 21 muestrame la cantiadad de vehiculo que hay de cada tipo
+      
       select tipo, count(tipo) from vehiculos group by 1;
+      
 	  -- 22 muestre todos los autos deportivos con sus respectivos datos
+      
       select * from vehiculos  where tipo='deportivo';
+      
 	  -- 23 muestrame el  id, modelo, tipo, placa del vehiculo y la id de la sucursal donde este se encuentra
+      
       select idvehiculos, modelos, tipo, placa, idsucursal from vehiculos inner join sucursal on vehiculos.id_sucursal=sucursal.idsucursal;
+      
 	  -- 24 muestre los clientes de la ciudad de madrid
+      
 		select * from cliente  where ciudad= 'madrid' ;
+        
 	  -- 25 muestre la cantidad de clientes que ha tenido un empleado
+      
       select idempleado, empleado.nombre , count(idcliente) from cliente inner join empleado on cliente.id_empleado = empleado.idempleado group by 1,2;
