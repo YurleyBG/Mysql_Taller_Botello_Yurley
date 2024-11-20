@@ -22,11 +22,11 @@ begin
  returns decimal deterministic
  begin 
 	declare dias int;
-    set dias= (select datediff(fecha_llegada,fecha_salida)*valor_semanal as valor from alquiler where datediff(fecha_llegada,fecha_salida) =7 limit 1 );
+    set dias= (select valor_semanal as valor_pago_semana from alquiler
+    where datediff(fecha_llegada,fecha_salida) =7 limit 1 );
     return dias;
 end //
 delimiter ;
-
 select valor_pagar();
  
  -- 3 mostrar el valor total cotizado por semana 
@@ -62,7 +62,8 @@ select valor_cotizado_dias();
  returns int deterministic
  begin
  declare suma int;
- set suma =(select count(idalquiler) as Total_Alquiler from alquiler inner join vehiculos on vehiculos.idvehiculos = alquiler.id_vehiculos  where vehiculos.tipo='SUV' );
+ set suma =(select count(idalquiler) as Total_Alquiler from alquiler inner join vehiculos on vehiculos.idvehiculos = alquiler.id_vehiculos
+ where vehiculos.tipo='SUV' );
  return suma;
  end //
  delimiter ;
@@ -165,7 +166,7 @@ inner join vehiculos v on a.id_vehiculos =  v.idvehiculos ;
       select idvehiculos, modelos, tipo, placa, idsucursal from vehiculos inner join sucursal on vehiculos.id_sucursal=sucursal.idsucursal;
       
 	  -- 24 muestre los clientes de la ciudad de madrid
-      
+	
 		select * from cliente  where ciudad= 'madrid' ;
         
 	  -- 25 muestre la cantidad de clientes que ha tenido un empleado

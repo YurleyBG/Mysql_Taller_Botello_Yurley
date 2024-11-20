@@ -1,4 +1,4 @@
-use laboratorioT2;
+use laboratorio;
 
 
 
@@ -245,7 +245,7 @@ VALUES
 (28, 'Rafael', 'Gómez', 'Ramírez', 'Soria', '975432109', 'rafael.gomez@email.com', 8),
 (29, 'Sonia', 'Fernández', 'López', 'Almería', '950123456', 'sonia.fernandez@email.com', 9),
 (30, 'Tomás', 'Pérez', 'Martínez', 'Salamanca', '923654321', 'tomas.perez@email.com', 10),
-(31, 'Marcos', 'García', 'Sánchez', 'Castilla', '931876543', 'marcos.garcia@email.com', 1),
+(31, 'Marcos', 'García', 'Sánchez', 'Bogota', '931876543', 'marcos.garcia@email.com', 1),
 (32, 'José', 'Rodríguez', 'Hernández', 'Cáceres', '927654321', 'jose.rodriguez@email.com', 2),
 (33, 'Ana', 'Gómez', 'López', 'Cádiz', '956789012', 'ana.gomez@email.com', 3),
 (34, 'Carlos', 'Martínez', 'Sánchez', 'Tenerife', '922345678', 'carlos.martinez@email.com', 4),
@@ -320,7 +320,7 @@ VALUES
 INSERT INTO empleado (idempleado, nombre, apellido1, apellido2, cedula, direccion, ciudad, celular, email, id_sucursal) VALUES
 (1, 'Juan', 'Pérez', 'López', '200000001', 'Av. Principal 1', 'Ciudad A', '6001001', 'juan.perez1@email.com', 1),
 (2, 'Ana', 'Gómez', 'Ruiz', '200000002', 'Av. Principal 2', 'Ciudad B', '6001002', 'ana.gomez2@email.com', 2),
-(3, 'Carlos', 'Rodríguez', 'García', '200000003', 'Av. Principal 3', 'Ciudad C', '6001003', 'carlos.rodriguez3@email.com', 3),
+(3, 'Carlos', 'Rodríguez', 'García', '200000003', 'Av. Principal 3', 'Ciudad C', '6001003', 'carlos.rodriguez3@email.com', 31),
 (4, 'Lucía', 'Fernández', 'Torres', '200000004', 'Av. Principal 4', 'Ciudad D', '6001004', 'lucia.fernandez4@email.com', 4),
 (5, 'Pedro', 'Martínez', 'Rivas', '200000005', 'Av. Principal 5', 'Ciudad E', '6001005', 'pedro.martinez5@email.com', 1),
 (6, 'María', 'Sánchez', 'Díaz', '200000006', 'Av. Principal 6', 'Ciudad F', '6001006', 'maria.sanchez6@email.com', 2),
@@ -840,7 +840,6 @@ INSERT INTO alquiler (idalquiler, fecha_acordada, fecha_salida, fecha_llegada,va
 (98, '2025-05-04', '2025-04-25', '2025-05-04', 700, 100, 0, 700, 756, 98, 3),
 (99, '2025-05-09', '2025-05-02', '2025-05-09', 700, 100, 75, 625, 625, 99, 4),
 (100, '2025-05-14', '2025-05-07', '2025-05-14', 700, 100, 25, 675, 729, 100, 5)
-
 
 
 
